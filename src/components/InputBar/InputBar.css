@@ -1,0 +1,10 @@
+.InputBar {
+    width: 75%;
+    height: 50px;
+    background-color: white;
+    position: fixed;
+    left: 50%;
+    top: 95%;
+    transform: translate(-50%, -95%);
+    font-size: 1.25em;
+}

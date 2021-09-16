@@ -1,0 +1,15 @@
+.Chatbox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.Chatbox-message {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    width: 95%;
+    font-size: 1.5em;
+    min-height: 2em;
+    margin: 0 auto;
+}
