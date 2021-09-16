@@ -10,18 +10,6 @@ function App() {
 	const [isReady, setIsReady] = useState(false);
 
 	useEffect(() => {
-		function connectToWebsocket(url) {
-			const ws = new WebSocket(url);
-
-			ws.onerror = (ev) => {
-				const choice = window.confirm("Connection to server failed, retry?");
-
-				if (choice) window.location.reload();
-			}
-
-			return ws;
-		}
-
 		if (name === null) {
 			const userName = window.prompt("Please enter a username");
 
@@ -32,7 +20,13 @@ function App() {
 		}
 
 		if (socket === null) {
-			const ws = connectToWebsocket('ws://localhost:8080');
+			const ws = new WebSocket('ws://localhost:8080');
+
+			ws.onerror = (ev) => {
+				const choice = window.confirm("Connection to server failed, retry?");
+
+				if (choice) window.location.reload();
+			}
 
 			ws.onopen = (ev) => {
 				setWebsocket(ws);
